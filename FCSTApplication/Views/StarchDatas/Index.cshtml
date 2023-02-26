@@ -1,0 +1,78 @@
+﻿@model IEnumerable<FCSTApplication.Models.StarchData>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>澱粉市況</h1>
+
+<p>
+    <a asp-action="Create">新增</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Week)*@
+                週
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Date)*@
+                日期
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ChinaShandongPrice)*@
+                大陸山東<br>
+                玉米澱粉
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ThaiPrice)*@
+                泰國TTSA<br>
+                木薯澱粉
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.CornPrice)*@
+                玉米期貨
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.WheatPrice)*@
+                小麥期貨
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderByDescending(item => item.Date)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Week)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChinaShandongPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThaiPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CornPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WheatPrice)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">編輯</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">詳細</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">刪除</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<style>
+    th, td {
+        text-align: center;
+    }
+</style>

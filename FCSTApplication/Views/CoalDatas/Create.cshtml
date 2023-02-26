@@ -1,0 +1,83 @@
+﻿@model FCSTApplication.Models.CoalData
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="CoalDatas" asp-action="Index">煤炭市況</a></li>
+        <li class="breadcrumb-item active" aria-current="page">新增</li>
+    </ol>
+</nav>
+
+<h4>煤炭市況</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Week" class="control-label">週</label>
+                <input asp-for="Week" class="form-control" />
+                <span asp-validation-for="Week" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label">日期</label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoalPrice_5800" class="control-label">大陸煤炭5800卡-長協指數(RMB/t)</label>
+                <input asp-for="CoalPrice_5800" class="form-control" />
+                <span asp-validation-for="CoalPrice_5800" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoalPrice_5500" class="control-label">大陸煤炭5500卡-長協指數(RMB/t)</label>
+                <input asp-for="CoalPrice_5500" class="form-control" />
+                <span asp-validation-for="CoalPrice_5500" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoalPrice_5000" class="control-label">大陸煤炭5000卡-長協指數(RMB/t)</label>
+                <input asp-for="CoalPrice_5000" class="form-control" />
+                <span asp-validation-for="CoalPrice_5000" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpotPrice_5500" class="control-label">大陸煤炭5500卡-現貨指數(RMB/t)</label>
+                <input asp-for="SpotPrice_5500" class="form-control" />
+                <span asp-validation-for="SpotPrice_5500" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BohaiInventory" class="control-label">環渤海庫存(萬噸)</label>
+                <input asp-for="BohaiInventory" class="form-control" />
+                <span asp-validation-for="BohaiInventory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PortChinInventory" class="control-label">秦皇島庫存(萬噸)</label>
+                <input asp-for="PortChinInventory" class="form-control" />
+                <span asp-validation-for="PortChinInventory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeliveryFee" class="control-label">秦皇島-乍浦 4-5萬噸運費</label>
+                <input asp-for="DeliveryFee" class="form-control" />
+                <span asp-validation-for="DeliveryFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewcPrice" class="control-label">NEWC指數(USD/t)</label>
+                <input asp-for="NewcPrice" class="form-control" />
+                <span asp-validation-for="NewcPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">回到列表</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,95 @@
+﻿@model FCSTApplication.Models.CoalData
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="CoalDatas" asp-action="Index">煤炭市況</a></li>
+        <li class="breadcrumb-item active" aria-current="page">刪除</li>
+    </ol>
+</nav>
+
+<div>
+    <h3>你確定要刪除這筆資料?</h3>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.Week)*@
+            週
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Week)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.Date)*@
+            日期
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.CoalPrice_5800)*@
+            大陸煤炭5800卡-長協指數(RMB/t)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CoalPrice_5800)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.CoalPrice_5500)*@
+            大陸煤炭5500卡-長協指數(RMB/t)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CoalPrice_5500)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.CoalPrice_5000)*@
+            大陸煤炭5000卡-長協指數(RMB/t)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CoalPrice_5000)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.SpotPrice_5500)*@
+            大陸煤炭5500卡-現貨指數(RMB/t)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.SpotPrice_5500)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.BohaiInventory)*@
+            環渤海庫存(萬噸)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.BohaiInventory)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.PortChinInventory)*@
+            秦皇島庫存(萬噸)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PortChinInventory)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.DeliveryFee)*@
+            秦皇島-乍浦 4-5萬噸運費
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.DeliveryFee)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.NewcPrice)*@
+            NEWC指數(USD/t)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.NewcPrice)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">回到列表</a>
+    </form>
+</div>

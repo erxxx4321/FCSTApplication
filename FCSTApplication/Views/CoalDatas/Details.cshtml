@@ -1,0 +1,106 @@
+﻿@model FCSTApplication.Models.CoalData
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="CoalDatas" asp-action="Index">煤炭市況</a></li>
+        <li class="breadcrumb-item active" aria-current="page">詳細</li>
+    </ol>
+</nav>
+
+<div>
+    <h4>煤炭市況</h4>
+    <hr />
+    <h4 style="padding:8px 0">
+        @Html.DisplayFor(model => model.Week) - @Html.DisplayFor(model => model.Date)
+    </h4>
+    <dl class="row">
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.CoalPrice_5800)*@
+            大陸煤炭5800卡-長協指數(RMB/t)
+            <a target="_blank" href="http://www.cqcoal.com/dataport/fygmtjg_qhdmtjg.jsp?item=lm231&pg=3">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CoalPrice_5800)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.CoalPrice_5500)*@
+            大陸煤炭5500卡-長協指數(RMB/t)
+            <a target="_blank" href="http://www.cqcoal.com/dataport/fygmtjg_qhdmtjg.jsp?item=lm231&pg=3">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CoalPrice_5500)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.CoalPrice_5000)*@
+            大陸煤炭5000卡-長協指數(RMB/t)
+            <a target="_blank" href="http://www.cqcoal.com/dataport/fygmtjg_qhdmtjg.jsp?item=lm231&pg=3">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CoalPrice_5000)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.SpotPrice_5500)*@
+            大陸煤炭5500卡-現貨指數(RMB/t)
+            <a target="_blank" href="https://coal.mysteel.com/market/p-307-----050201-0--------1.html">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.SpotPrice_5500)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.BohaiInventory)*@
+            環渤海庫存(萬噸)
+            <a target="_blank" href="https://coal.mysteel.com/article/p-6174-------------1.html">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.BohaiInventory)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.PortChinInventory)*@
+            秦皇島庫存(萬噸)
+            <a target="_blank" href="https://coal.mysteel.com/article/p-6174-------------1.html">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PortChinInventory)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.DeliveryFee)*@
+            秦皇島-乍浦 4-5萬噸運費
+            <a target="_blank" href="http://www.cqcoal.com/exp/ocfi.jsp">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.DeliveryFee)
+        </dd>
+        <dt class="col-sm-4">
+            @*@Html.DisplayNameFor(model => model.NewcPrice)*@
+            NEWC指數(USD/t)
+            <a target="_blank" href="https://www.cnyes.com/futures/html5chart/NCFCON.html">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-8">    
+            @Html.DisplayFor(model => model.NewcPrice)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">編輯</a> |
+    <a asp-action="Index">回到列表</a>
+</div>

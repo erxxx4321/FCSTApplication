@@ -1,0 +1,62 @@
+﻿@model FCSTApplication.Models.StarchData
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="StarchDatas" asp-action="Index">澱粉市況</a></li>
+        <li class="breadcrumb-item active" aria-current="page">編輯</li>
+    </ol>
+</nav>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="control-label">週</label>
+                <input asp-for="Week" class="form-control" />
+                <span asp-validation-for="Week" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">日期</label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">大陸山東玉米澱粉</label>
+                <input asp-for="ChinaShandongPrice" class="form-control" />
+                <span asp-validation-for="ChinaShandongPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">泰國TTSA木薯澱粉</label>
+                <input asp-for="ThaiPrice" class="form-control" />
+                <span asp-validation-for="ThaiPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">玉米期貨</label>
+                <input asp-for="CornPrice" class="form-control" />
+                <span asp-validation-for="CornPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">小麥期貨</label>
+                <input asp-for="WheatPrice" class="form-control" />
+                <span asp-validation-for="WheatPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="儲存" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">回到列表</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

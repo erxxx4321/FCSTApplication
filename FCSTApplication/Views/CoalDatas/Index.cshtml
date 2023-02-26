@@ -1,0 +1,105 @@
+﻿@model IEnumerable<FCSTApplication.Models.CoalData>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>煤炭市況</h1>
+
+<p>
+    <a asp-action="Create">新增</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Week)*@
+                週
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Date)*@
+                日期
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.CoalPrice_5800)*@
+                大陸煤炭<br>5800卡<br>長協指數(RMB/t)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.CoalPrice_5500)*@
+                大陸煤炭<br>5500卡<br>長協指數(RMB/t)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.CoalPrice_5000)*@
+                大陸煤炭<br>5000卡<br>長協指數(RMB/t)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.SpotPrice_5500)*@
+                大陸煤炭<br>5500卡<br>現貨指數(RMB/t)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.BohaiInventory)*@
+                環渤海庫存<br>(萬噸)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.PortChinInventory)*@
+                秦皇島庫存<br>(萬噸)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DeliveryFee)*@
+                秦皇島-乍浦<br>4-5萬噸運費
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.NewcPrice)*@
+                NEWC指數<br>(USD/t)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderByDescending(item => item.Date)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Week)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoalPrice_5800)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoalPrice_5500)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoalPrice_5000)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpotPrice_5500)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BohaiInventory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PortChinInventory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewcPrice)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">編輯</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">詳細</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">刪除</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<style>
+    th, td {
+        text-align: center;
+        white-space: nowrap;
+    }
+</style>

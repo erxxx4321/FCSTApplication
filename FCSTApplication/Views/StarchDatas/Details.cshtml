@@ -1,0 +1,65 @@
+﻿@model FCSTApplication.Models.StarchData
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="StarchDatas" asp-action="Index">澱粉市況</a></li>
+        <li class="breadcrumb-item active" aria-current="page">詳細</li>
+    </ol>
+</nav>
+
+<div>
+    <hr />
+        <h4 style="padding:8px 0">
+            @Html.DisplayFor(model => model.Week) - @Html.DisplayFor(model => model.Date)
+        </h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.ChinaShandongPrice)*@
+            大陸山東玉米澱粉
+            <a target="_blank" href="https://prices.sci99.com/cn/product_price.aspx?diid=14519&datatypeid=330&ppid=12216&ppname=%u7389%u7C73%u6DC0%u7C89&cycletype=day">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ChinaShandongPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.ThaiPrice)*@
+            泰國TTSA木薯澱粉
+            <a target="_blank" href="http://www.thaitapiocastarch.org/en/information/statistics/weekly_tapioca_starch_price">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ThaiPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.CornPrice)*@
+            玉米期貨
+            <a target="_blank" href="https://www.stockq.org/commodity/FUTRCORN.php">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CornPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.WheatPrice)*@
+            小麥期貨
+            <a target="_blank" href="https://www.stockq.org/commodity/FUTRWHEA.php">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WheatPrice)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">編輯</a> |
+    <a asp-action="Index">回到列表</a>
+</div>
